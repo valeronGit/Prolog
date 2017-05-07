@@ -149,28 +149,17 @@ write('Comanda incorecta! '),nl.
 
 scopuri_princ :-
 scop(Atr),determina(Atr), afiseaza_scop(Atr),fail.
-scopuri_princ:- afiseaza_scop.
+scopuri_princ.
 
 determina(Atr) :-
 realizare_scop(av(Atr,_),_,[scop(Atr)]),!.
 determina(_).
 
-/* afiseaza_scop(Atr) :-
+afiseaza_scop(Atr) :-
 nl,fapt(av(Atr,Val),FC,_),
 FC >= 20,scrie_scop(av(Atr,Val),FC),
-nl,fail. */
-afiseaza_scop(Atr):- max_fc(L,Atr), afis_scop_aux(L,Atr).
-
-afis_scop_aux([],_).
-afis_scop_aux([H|T],Atr):- fapt(av(Atr,Val),H,_),scrie_scop(av(Atr,Val),H),nl,afis_scop_aux(T,Atr).
-
-max_fc(L,Atr):- bagof(X,D^E^(fapt(av(Atr,D),X,E),X>=20),Ls),sort(Ls,Lv),reverse(Lv,L).
+nl,fail.
 afiseaza_scop(_):-nl,nl.
-
-reverse([],Z,Z).
-reverse([H|T],Z,Acc) :- reverse(T,Z,[H|Acc]).
-
-afiseaza_scop:- write('Nu exista solutii pentru optiunile alese!'),nl,nl,nl.
 
 scrie_scop(av(Atr,Val),FC) :-
 transformare(av(Atr,Val), X),
@@ -363,36 +352,33 @@ proceseaza(L),L == [end_of_file],nl.
 proceseaza([end_of_file]):-!.
 proceseaza(L) :-
 trad(R,L,[]),assertz(R), !.
-trad(scop(X)) --> [scop,'^',X].
-trad(scop(X)) --> [scop,X].
+trad(scop(X)) --> [scopul,este,X].
+trad(scop(X)) --> [scopul,X].
 trad(interogabil(Atr,M,P)) --> 
-['[',Atr,']'],afiseaza(Atr,P),lista_optiuni(M).
-trad(regula(N,premise(Daca),concluzie(Atunci,F))) --> identificator(N),atunci(Atunci,F),daca(Daca).
+[intreaba,Atr],lista_optiuni(M),afiseaza(Atr,P).
+trad(regula(N,premise(Daca),concluzie(Atunci,F))) --> identificator(N),daca(Daca),atunci(Atunci,F).
 trad('Eroare la parsare'-L,L,_).
 
-lista_optiuni(M) --> [optiuni,'^','{'],lista_de_optiuni(M).
-lista_de_optiuni([Element]) -->  [Element,'}'].
-lista_de_optiuni([Element|T]) --> [Element,'/','/'],lista_de_optiuni(T).
+lista_optiuni(M) --> [optiuni,'('],lista_de_optiuni(M).
+lista_de_optiuni([Element]) -->  [Element,')'].
+lista_de_optiuni([Element|T]) --> [Element],lista_de_optiuni(T).
 
-afiseaza(_,P) -->  ['text-intrebare','^',P].
+afiseaza(_,P) -->  [afiseaza,P].
 afiseaza(P,P) -->  [].
-identificator(N) --> [reg,'^',N].
+identificator(N) --> [regula,N].
 
-daca(Daca) --> ['{'],lista_premise(Daca).
+daca(Daca) --> [daca],lista_premise(Daca).
 
-lista_premise([Daca]) --> propoz(Daca),['}'].
-lista_premise([Prima|Celalalte]) --> propoz(Prima),['&','&'],lista_premise(Celalalte).
+lista_premise([Daca]) --> propoz(Daca),[atunci].
+lista_premise([Prima|Celalalte]) --> propoz(Prima),[si],lista_premise(Celalalte).
 lista_premise([Prima|Celalalte]) --> propoz(Prima),[','],lista_premise(Celalalte).
 
-atunci(Atunci,FC) --> propoz1(Atunci),['&','&',factor_de_certitudine,'^'],[FC,')'],[lista_de_premise].
+atunci(Atunci,FC) --> propoz(Atunci),[fc],[FC].
+atunci(Atunci,100) --> propoz(Atunci).
 
-propoz1(av(Atr,Val)) -->[Atr,'^','(',Val].
-propoz1(av(Atr,da)) --> [Atr,'^','(','da'].
-
-propoz(not av(Atr,da)) --> ['^',Atr].
-propoz(av(Atr,Val)) --> [Atr,'^',Val].
+propoz(not av(Atr,da)) --> [not,Atr].
+propoz(av(Atr,Val)) --> [Atr,este,Val].
 propoz(av(Atr,da)) --> [Atr].
-
 
 citeste_linie([Cuv|Lista_cuv]) :-
 get_code(Car),
@@ -490,9 +476,9 @@ citeste_cuvant(_,Cuvant,Caracter1) :-
 get_code(Caracter),       
 citeste_cuvant(Caracter,Cuvant,Caracter1). 
 
-caracter_cuvant(C):-member(C,[44,59,58,63,33,46,41,40,123,125,94,47,38,91,93,45]).
+caracter_cuvant(C):-member(C,[44,59,58,63,33,46,41,40]).
 
-% am specificat codurile ASCII pentru , ; : ? ! . ) ( { } ^ / & [ ] -
+% am specificat codurile ASCII pentru , ; : ? ! . ) (
 
 caractere_in_interiorul_unui_cuvant(C):-
 C>64,C<91;C>47,C<58;
