@@ -148,8 +148,8 @@ executa([_|_]) :-
 write('Comanda incorecta! '),nl.
 
 scopuri_princ :-
-scop(Atr),determina(Atr), afiseaza_scop(Atr),fail.
-scopuri_princ:- afiseaza_scop.
+scop(Atr),determina(Atr), afiseaza_scop(Atr),nl,nl.  
+
 
 determina(Atr) :-
 realizare_scop(av(Atr,_),_,[scop(Atr)]),!.
@@ -159,18 +159,23 @@ determina(_).
 nl,fapt(av(Atr,Val),FC,_),
 FC >= 20,scrie_scop(av(Atr,Val),FC),
 nl,fail. */
-afiseaza_scop(Atr):- max_fc(L,Atr), afis_scop_aux(L,Atr).
 
+%afiseaza_scop(Atr):-  gaseste fc pt joburi sau afiseaza mesaj , afis_scop_aux(L,Atr).
+afiseaza_scop(Atr):- (max_fc(L,Atr);afiseaza_scop),afis_scop_aux(L,Atr).
+
+%folosind lista de FC de mai jos se afiseaza jobul care are factorul de certitudine egal cu capul listei, se repeta pana la []
 afis_scop_aux([],_).
 afis_scop_aux([H|T],Atr):- fapt(av(Atr,Val),H,_),scrie_scop(av(Atr,Val),H),nl,afis_scop_aux(T,Atr).
 
+%determina lista de FC a joburilor si o ordineaza descrescator
 max_fc(L,Atr):- bagof(X,D^E^(fapt(av(Atr,D),X,E),X>=20),Ls),sort(Ls,Lv),reverse(Lv,L).
 afiseaza_scop(_):-nl,nl.
 
+%inverseaza o lista
 reverse([],Z,Z).
 reverse([H|T],Z,Acc) :- reverse(T,Z,[H|Acc]).
 
-afiseaza_scop:- write('Nu exista solutii pentru optiunile alese!'),nl,nl,nl.
+afiseaza_scop:- write('Nu exista solutii pentru optiunile alese!'),nl,nl,nl.   %afiseaza mesaj cand nu am solutii
 
 scrie_scop(av(Atr,Val),FC) :-
 transformare(av(Atr,Val), X),
