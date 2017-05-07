@@ -1,0 +1,2 @@
+# Prolog
+sistem expert
