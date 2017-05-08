@@ -161,7 +161,7 @@ FC >= 20,scrie_scop(av(Atr,Val),FC),
 nl,fail. */
 
 %afiseaza_scop(Atr):-  gaseste fc pt joburi sau afiseaza mesaj , afis_scop_aux(L,Atr).
-afiseaza_scop(Atr):- (max_fc(L,Atr);afiseaza_scop),afis_scop_aux(L,Atr).
+afiseaza_scop(Atr):- (max_fc(L,Atr);afiseaza_scop,!),afis_scop_aux(L,Atr).
 
 %folosind lista de FC de mai jos se afiseaza jobul care are factorul de certitudine egal cu capul listei, se repeta pana la []
 afis_scop_aux([],_).
