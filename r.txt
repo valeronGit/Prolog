@@ -1,0 +1,1085 @@
+scop^job.
+
+
+reg^1
+team_player^(da && factor_de_certitudine^90)
+lista_de_premise {
+	teamwork &&
+	adaptability &&
+	communication_skills 
+}.
+
+
+reg^2
+team_player^(da && factor_de_certitudine^75)
+lista_de_premise {
+	teamwork &&
+	communication_skills
+}.
+
+
+reg^3
+entry_level^(da && factor_de_certitudine^90)
+lista_de_premise {
+	ani_experienta^junior
+}.
+
+
+reg^4
+middle_level^(da && factor_de_certitudine^90)
+lista_de_premise {
+	ani_experienta^middle
+}.
+
+
+reg^5
+senior_level^(da && factor_de_certitudine^90)
+lista_de_premise {
+	ani_experienta^senior
+}.
+
+
+reg^6
+web_design^(da && factor_de_certitudine^90)
+lista_de_premise {
+	knows_ui_ux &&
+	has_design_skills &&
+	adobe_suite
+}.
+
+
+reg^7
+web_design^(da && factor_de_certitudine^87)
+lista_de_premise {
+	knows_ui_ux &&
+	has_design_skills
+}.
+
+
+reg^8
+web_design^(da && factor_de_certitudine^85)
+lista_de_premise {
+	knows_ui_ux &&
+	adobe_suite
+}.
+
+
+reg^9
+web_design^(da && factor_de_certitudine^80)
+lista_de_premise {
+	has_design_skills
+}.
+
+
+reg^10
+knows_web_interface^(da && factor_de_certitudine^90)
+lista_de_premise {
+	knows_ui_ux &&
+	knows_scripting^javascript &&
+	adobe_suite 
+}.
+
+
+reg^11
+knows_web_interface^(da && factor_de_certitudine^85)
+lista_de_premise {
+	knows_ui_ux &&
+	knows_scripting^javascript 
+}.
+
+
+reg^12
+knows_web_interface^(da && factor_de_certitudine^80)
+lista_de_premise {
+	knows_ux_ux &&
+	adobe_suite 
+}.
+
+
+reg^13
+knows_web_interface^(da && factor_de_certitudine^75)
+lista_de_premise {
+	knows_ui_ux 
+}.
+
+
+reg^14
+developer^(da && factor_de_certitudine^90)
+lista_de_premise {
+	knows_programming_oop^python &&
+	knows_operating_systems 
+}.
+
+
+reg^15
+system_engineer^(da && factor_de_certitudine^90)
+lista_de_premise {
+	developer &&
+	knows_linux 
+}.
+
+
+reg^16
+system_engineer^(da && factor_de_certitudine^80)
+lista_de_premise {
+	developer 
+}.
+
+
+reg^17
+knows_alm^(da && factor_de_certitudine^90)
+lista_de_premise {
+	knows_programming_oop^java &&
+	knows_scripting^javascript &&
+	knows_scripting^angularJs &&
+	knows_databases^sql &&
+	knows_operating_systems
+}.
+
+
+reg^18
+knows_alm^(da && factor_de_certitudine^80)
+lista_de_premise {
+	knows_programming_oop^java &&
+	knows_scripting^javascript &&
+	knows_databases^sql &&
+	knows_operating_systems 
+}.
+
+
+reg^19
+knows_alm^(da && factor_de_certitudine^75)
+lista_de_premise {
+	knows_programming_oop^java &&
+	knows_databases^sql &&
+	knows_operating_systems 
+}.
+
+
+reg^20
+knows_alm^(da && factor_de_certitudine^70)
+lista_de_premise {
+	knows_databases^sql &&
+	knows_operating_systems 
+}.
+
+
+reg^21
+productive^(da && factor_de_certitudine^90)
+lista_de_premise {
+	organizational_skills &&
+	quick_assimilation 
+}.
+
+
+reg^22
+productive^(da && factor_de_certitudine^80)
+lista_de_premise {
+	quick_assimilation 
+}.
+
+
+reg^23
+productive^(da && factor_de_certitudine^70)
+lista_de_premise {
+	organizational_skills 
+}.
+
+
+reg^24
+smart_thinking^(da && factor_de_certitudine^90)
+lista_de_premise {
+	problem_solving_skills &&
+	focus_on_results 
+}.
+
+
+reg^25
+smart_thinking^(da && factor_de_certitudine^85)
+lista_de_premise {
+	problem_solving_skills 
+}.
+
+
+reg^26
+smart_thinking^(da && factor_de_certitudine^80)
+lista_de_premise {
+	focus_on_results
+}.
+
+
+reg^27
+driven_person^(da && factor_de_certitudine^90)
+lista_de_premise {
+	assessment_and_improvement &&
+	stress_management 
+}.
+
+
+reg^28
+driven_person^(da && factor_de_certitudine^85)
+lista_de_premise {
+	assessment_and_improvement 
+}.
+
+
+reg^29
+driven_person^(da && factor_de_certitudine^80)
+lista_de_premise {
+	stress_management 
+}.
+
+
+
+reg^30
+job^(frontend_developer && factor_de_certitudine^90)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_web &&
+	knows_web_interface &&
+	knows_scripting^jquery &&
+	knows_web_design &&
+	team_player 
+}.
+
+reg^31
+job^(frontend_developer && factor_de_certitudine^80)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_web &&
+	knows_web_interface &&
+	knows_web_design &&
+	team_player 
+}.
+
+
+reg^32
+job^(frontend_developer && factor_de_certitudine^60)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_web &&
+	knows_web_interface 
+}.
+
+
+reg^33
+job^(backend_developer && factor_de_certitudine^90)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_web &&
+	knows_programming_oop^java &&
+	knows_scripting^javascript &&
+	knows_databases^sql &&
+	knows_databases^oracle_sql &&
+	smart_thinking &&
+	team_player 
+}.
+
+
+reg^34
+job^(backend_developer && factor_de_certitudine^85)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_web &&
+	knows_programming_oop^java &&
+	knows_databases^sql &&
+	knows_databases^oracle_sql &&
+	smart_thinking &&
+	team_player 
+}.
+
+
+reg^35
+job^(backend_developer && factor_de_certitudine^80)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_web &&
+	knows_programming_oop^java &&
+	knows_databases^sql &&
+	smart_thinking &&
+	team_player 
+}.
+
+
+reg^36
+job^(javascript_developer && factor_de_certitudine^90)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_web &&
+	knows_scripting^javascript &&
+	has_design_skills &&
+	team_player &&
+	smart_thinking 
+}.
+
+
+reg^37
+job^(javascript_developer && factor_de_certitudine^80)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_web &&
+	knows_scripting^javascript &&
+	team_player &&
+	smart_thinking 
+}.
+
+
+reg^38
+job^(javascript_developer && factor_de_certitudine^60)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_web &&
+	knows_scripting^javascript &&
+	smart_thinking 
+}.
+
+
+reg^39
+job^(web_developer && factor_de_certitudine^90)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_web &&
+	knows_scripting^angularJs &&
+	has_design_skills &&
+	team_player &&
+	smart_thinking
+}.
+
+
+reg^40
+job^(web_developer && factor_de_certitudine^80)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_web &&
+	knows_scripting^angularJs &&
+	has_design_skills 
+}.
+
+
+reg^41
+job^(web_developer && factor_de_certitudine^85)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_web &&
+	has_design_skills &&
+	team_player &&
+	smart_thinking
+}.
+
+
+reg^42
+job^(c_sharp_developer && factor_de_certitudine^90)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_programming_oop^c_sharp &&
+	team_player &&
+	smart_thinking
+}.
+
+
+reg^43
+job^(c_developer && factor_de_certitudine^90)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_programming_oop^c &&
+	knows_programming_oop^python &&
+	knows_scripting^nodeJs &&
+	knows_operating_systems &&
+	team_player &&
+	smart_thinking
+}.
+
+
+reg^44
+job^(c_developer && factor_de_certitudine^80)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_programming_oop^c &&
+	knows_programming_oop^python &&
+	knows_operating_systems &&
+	team_player &&
+	smart_thinking
+}.
+
+
+reg^45
+job^(c_developer && factor_de_certitudine^70)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_programming_oop^c &&
+	knows_operating_systems &&
+	team_player &&
+	smart_thinking
+}.
+
+
+reg^46
+job^(c_developer && factor_de_certitudine^60)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_programming_oop^c &&
+	team_player &&
+	smart_thinking
+}.
+
+
+reg^47
+job^(c_plus_plus_developer && factor_de_certitudine^90)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_programming_oop^c_plus_plus &&
+	team_player &&
+	smart_thinking
+}.
+
+
+reg^48
+job^(c_plus_plus_developer && factor_de_certitudine^80)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_programming_oop^c_plus_plus &&
+	smart_thinking
+}.
+
+
+reg^49
+job^(java_developer && factor_de_certitudine^90)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_programming_oop^java &&
+	has_design_skills &&
+	team_player &&
+	smart_thinking
+}.
+
+
+reg^50
+job^(java_developer && factor_de_certitudine^80)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_programming_oop^java &&
+	team_player &&
+	smart_thinking
+}.
+
+
+reg^51
+job^(java_developer && factor_de_certitudine^70)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_programming_oop^java &&
+	smart_thinking
+}.
+
+
+reg^52
+job^(python_developer && factor_de_certitudine^90)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_programming_oop^python &&
+	team_player &&
+	smart_thinking
+}.
+
+
+reg^53
+job^(python_developer && factor_de_certitudine^80)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_programming_oop^python &&
+	smart_thinking
+}.
+
+
+reg^54
+job^(php_developer && factor_de_certitudine^90)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_databeses^php &&
+	knows_scripting^jquery &&
+	knows_web &&
+	team_player &&
+	smart_thinking
+}.
+
+
+reg^55
+job^(php_developer && factor_de_certitudine^80)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_databeses^php &&
+	team_player &&
+	smart_thinking
+}.
+
+
+reg^56
+job^(support_engineer && factor_de_certitudine^90)
+lista_de_premise {
+	^knows_programming &&
+	entry_level &&
+	knows_networking &&
+	smart_thinking &&
+	communication_skills
+}.
+
+
+reg^57
+job^(support_engineer && factor_de_certitudine^80)
+lista_de_premise {
+	^knows_programming &&
+	entry_level &&
+	knows_networking 
+}.
+
+
+reg^58
+job^(qa_analyst && factor_de_certitudine^90)
+lista_de_premise {
+	^knows_programming &&
+	entry_level &&
+	knows_operating_systems &&
+	knows_networking &&
+	team_player &&
+	smart_thinking &&
+	driven_person 
+}.
+
+
+reg^59
+job^(qa_analyst && factor_de_certitudine^80)
+lista_de_premise {
+	^knows_programming &&
+	entry_level &&
+	knows_operating_systems &&
+	knows_networking &&
+	team_player 
+}.
+
+
+reg^60
+job^(qa_analyst && factor_de_certitudine^70)
+lista_de_premise {
+	^knows_programming &&
+	entry_level &&
+	knows_networking
+}.
+
+
+reg^61
+job^(sql_developer && factor_de_certitudine^90)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_databases^sql &&
+	knows_databases^oracle_sql &&
+	team_player &&
+	smart_thinking &&
+	driven_person
+}.
+
+
+reg^62
+job^(sql_developer && factor_de_certitudine^80)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_databases^sql &&
+	knows_databases^oracle_sql &&
+	team_player &&
+	smart_thinking
+}.
+
+
+reg^63
+job^(sql_developer && factor_de_certitudine^70)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_databases^sql &&
+	knows_databases^oracle_sql &&
+	team_player
+}.
+
+
+reg^64
+job^(software_tester && factor_de_certitudine^90)
+lista_de_premise {
+	^knows_programming &&
+	entry_level &&
+	knows_operating_systems &&
+	team_player &&
+	productive &&
+	driven_person
+}.
+
+
+reg^65
+job^(software_tester && factor_de_certitudine^80)
+lista_de_premise {
+	^knows_programming &&
+	entry_level &&
+	knows_operating_systems &&
+	team_player &&
+	productive
+}.
+
+
+reg^66
+job^(software_tester && factor_de_certitudine^75)
+lista_de_premise {
+	^knows_programming &&
+	entry_level &&
+	knows_operating_systems &&
+	team_player
+}.
+
+
+reg^67
+job^(software_tester && factor_de_certitudine^70)
+lista_de_premise {
+	^knows_programming &&
+	entry_level &&
+	knows_operating_systems
+}.
+
+
+reg^68
+job^(linux_system_engineer && factor_de_certitudine^90)
+lista_de_premise {
+	knows_programming &&
+	senior_level &&
+	system_engineer &&
+	smart_thinking &&
+	driven_person &&
+	productive &&
+	team_player
+}.
+
+
+reg^69
+job^(linux_system_engineer && factor_de_certitudine^80)
+lista_de_premise {
+	knows_programming &&
+	senior_level &&
+	system_engineer &&
+	smart_thinking &&
+	driven_person &&
+	productive
+}.
+
+
+reg^70
+job^(linux_system_engineer && factor_de_certitudine^70)
+lista_de_premise {
+	knows_programming &&
+	senior_level &&
+	system_engineer &&
+	smart_thinking &&
+	driven_person
+}.
+
+
+reg^71
+job^(dot_net_software_developer && factor_de_certitudine^90)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_databases^sql &&
+	knows_databases^oracle_sql &&
+	knows_web &&
+	knows_web_interface &&
+	knows_scripting^jquery &&
+	knows_programming_oop^c_sharp &&
+	smart_thinking &&
+	team_player
+}.
+
+
+reg^72
+job^(dot_net_software_developer && factor_de_certitudine^85)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_databases^sql &&
+	knows_databases^oracle_sql &&
+	knows_web &&
+	knows_web_interface &&
+	knows_scripting^jquery &&
+	smart_thinking &&
+	team_player
+}.
+
+
+reg^73
+job^(dot_net_software_developer && factor_de_certitudine^80)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_databases^sql &&
+	knows_web &&
+	knows_web_interface &&
+	smart_thinking &&
+	team_player
+}.
+
+
+reg^74
+job^(dot_net_software_developer && factor_de_certitudine^70)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_databases^sql &&
+	knows_web &&
+	knows_web_interface &&
+	smart_thinking
+}.
+
+
+reg^75
+job^(fullstack_developer && factor_de_certitudine^90)
+lista_de_premise {
+	knows_programming &&
+	senior_level &&
+	knows_web &&
+	web_design &&
+	web_interface &&
+	knows_programming_oop^java &&
+	knows_databases^sql &&
+	knows_databases^oracle_sql &&
+	knows_databases^php &&
+	team_player &&
+	smart_thinking        
+}.
+
+
+reg^76
+job^(fullstack_developer && factor_de_certitudine^80)
+lista_de_premise {
+	knows_programming &&
+	senior_level &&
+	knows_web &&
+	web_design &&
+	web_interface &&
+	knows_programming_oop^java &&
+	knows_databases^sql &&
+	knows_databases^php &&
+	team_player
+}.
+
+
+reg^77
+job^(fullstack_developer && factor_de_certitudine^70)
+lista_de_premise {
+	knows_programming &&
+	senior_level &&
+	knows_web &&
+	web_design &&
+	web_interface &&
+	knows_programming_oop^java &&
+	knows_databases^sql
+}.
+
+
+reg^78
+job^(alm_application_lifecycle_management && factor_de_certitudine^90)
+lista_de_premise {
+	knows_programming &&
+	senior_level &&
+	knows_alm &&
+	knows_database^sql &&
+	knows_databases^oracle_sql &&
+	knows_operating_systems
+}.
+
+
+reg^79
+job^(alm_application_lifecycle_management && factor_de_certitudine^80)
+lista_de_premise {
+	knows_programming &&
+	senior_level &&
+	knows_alm &&
+	knows_database^sql &&
+	knows_operating_systems
+}.
+
+
+reg^80
+job^(alm_application_lifecycle_management && factor_de_certitudine^70)
+lista_de_premise {
+	knows_programming &&
+	senior_level &&
+	knows_alm &&
+	knows_database^sql
+}.
+
+
+reg^81
+job^(android_developer && factor_de_certitudine^90)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_programming_oop^java &&
+	knows_programming_oop^c_plus_plus &&
+	has_design_skills &&
+	smart_thinking &&
+	team_player
+}.
+
+
+reg^82
+job^(android_developer && factor_de_certitudine^85)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_programming_oop^java &&
+	knows_programming_oop^c_plus_plus &&
+	has_design_skills &&
+	smart_thinking
+}.
+
+
+reg^83
+job^(android_developer && factor_de_certitudine^80)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_programming_oop^java &&
+	knows_programming_oop^c_plus_plus &&
+	has_design_skills
+}.
+
+
+reg^84
+job^(android_developer && factor_de_certitudine^70)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_programming_oop^java &&
+	knows_programming_oop^c_plus_plus
+}.
+
+
+reg^85
+job^(ios_developer && factor_de_certitudine^90)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_programming_oop^swift_objective_c && 
+	has_design_skills &&
+	smart_thinking &&
+	team_player
+}.
+
+
+reg^86
+job^(ios_developer && factor_de_certitudine^80)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_programming_oop^swift_objective_c &&
+	has_design_skills &&
+	smart_thinking
+}.
+
+
+reg^87
+job^(ios_developer && factor_de_certitudine^70)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_programming_oop^swift_objective_c &&
+	has_design_skills
+}.
+
+
+reg^88
+job^(embedded_software && factor_de_certitudine^90)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_programming_oop^c &&
+	knows_programming_oop^c_plus_plus &&
+	knows_raspberrypi &&
+	team_player &&
+	smart_thinking &&
+	driven_person &&
+	organizational_skills &&
+	quick_assimilation
+}.
+
+
+reg^89
+job^(embedded_software && factor_de_certitudine^85)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_programming_oop^c &&
+	knows_programming_oop^c_plus_plus &&
+	knows_raspberrypi &&
+	team_player &&
+	smart_thinking &&
+	driven_person
+}.
+
+
+reg^90
+job^(embedded_software && factor_de_certitudine^80)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_programming_oop^c &&
+	knows_programming_oop^c_plus_plus &&
+	knows_raspberrypi &&
+	team_player &&
+	smart_thinking
+}.
+
+
+reg^91
+job^(embedded_software && factor_de_certitudine^70)
+lista_de_premise {
+	knows_programming &&
+	middle_level &&
+	knows_programming_oop^c &&
+	knows_programming_oop^c_plus_plus &&
+	knows_raspberrypi &&
+	team_player
+}.
+
+
+
+[knows_programming]
+text-intrebare ^ 'Cunoasteti vreun limbaj de programare?'
+optiuni ^ {Da // Nu}.
+
+
+[teamwork]
+text-intrebare ^ 'Lucrati bine in echipa?'
+optiuni ^ {Da // Nu}.
+
+
+[communication_skills]
+text-intrebare ^ 'Sunteti o persoana sociabila?'
+optiuni ^ {Da // Nu}.
+
+
+[adaptability]
+text-intrebare ^ 'Sunteti tipul de persoana care ajusteaza stilul sau modul de lucru in functie de fiecare situatie in parte?'
+optiuni ^ {Da // Nu}.
+
+
+[knows_ui_ux]
+text-intrebare ^ 'Aveti cunostinte de UI si UX?'
+optiuni ^ {Da // Nu}.
+
+
+[has_design_skills]
+text-intrebare^ 'Considerati ca aveti un simt artistic dezvoltat?'
+optiuni ^ {Da // Nu}.
+
+
+[adobe_suite]
+text-intrebare ^ 'Sunteti familiar cu programele din suita Adobe?'
+optiuni ^ {Da // Nu}.
+
+
+[organizational_skills]
+text-intrebare ^ 'Sunteti o persoana organizata?'
+optiuni ^ {Da // Nu}.
+
+
+[quick_assimilation]
+text-intrebare ^ 'Sunteti o persoana care poate invata si asimila cunostinte noi intr-un timp scurt?'
+optiuni ^ {Da // Nu}.
+
+
+[problem_solving_skills]
+text-intrebare ^ 'Aveti tendinta sa gasiti solutia unei probleme cu usurinta? '
+optiuni ^ {Da // Nu}.
+
+
+[focus_on_results]
+text-intrebare ^ 'Va considerati o persoana inclinata spre rezultate?'
+optiuni ^ {Da // Nu}.
+
+
+[assessment_and_improvement]
+text-intrebare ^ 'Considerati ca sunteti capabil(a) de imbunatatire personala si de estimarea corecta a situatiilor?'
+optiuni ^ {Da // Nu}.
+
+
+[stress_management]
+text-intrebare ^ 'Sunteti o persoana capabila de a lua decizii corecte sub stres?'
+optiuni ^ {Da // Nu}.
+
+
+[knows_operating_systems]
+text-intrebare ^ 'Aveti cunostinte de sisteme de operare?'
+optiuni ^ {Da // Nu}.
+
+
+[knows_networking]
+text-intrebare ^ 'Aveti cunostinte de retele de calculatoare?'
+optiuni ^ {Da // Nu}.
+
+
+[knows_web]
+text-intrebare ^ 'Aveti cunostinte de HTML si CSS?'
+optiuni ^ {Da // Nu}.
+
+
+[knows_raspberrypi]
+text-intrebare ^ 'Aveti cunostinte de RaspberryPi?'
+optiuni ^ {Da // Nu}.
+
+
+[knows_linux]
+text-intrebare ^ 'Aveti cunostinte de linux?'
+optiuni ^ {Da // Nu}.
+
+
+[ani_experienta]
+text-intrebare ^ 'Cati ani de experienta aveti in domeniu?'
+optiuni ^ {junior // middle  // senior}.
+
+
+[knows_scripting]
+knows_scripting ^ 'Ce limbaje de scripting cunoasteti?'
+optiuni ^ {javascript // jquery // angularJs}.
+
+
+[knows_programming_oop]
+text-intrebare ^ 'Ce limbaje de programare cunoasteti?'
+optiuni ^ {java // c // c_plus_plus // c_sharp // python // perl // swift_objective_c}.
+
+
+[knows_databases] 
+text-intrebare ^ 'Ce limbaje de baze de date cunoasteti?'
+optiuni ^ {sql // oracle_sql // php}.
