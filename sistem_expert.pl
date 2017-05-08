@@ -267,7 +267,7 @@ cum(Scop),
 cum_premise(X).
         
 interogheaza(Atr,Mesaj,[da,nu],Istorie) :-
-!,write(Mesaj),nl,
+!,write(Mesaj),nl,write('da nu'),nl,
 de_la_utiliz(X,Istorie,[da,nu]),
 det_val_fc(X,Val,FC),
 asserta( fapt(av(Atr,Val),FC,[utiliz]) ).
