@@ -161,7 +161,7 @@ FC >= 20,scrie_scop(av(Atr,Val),FC),
 nl,fail. */
 
 %afiseaza_scop(Atr):-  gaseste fc pt joburi sau afiseaza mesaj , afis_scop_aux(L,Atr).
-afiseaza_scop(Atr):- (max_fc(L,Atr);afiseaza_scop,!),afis_scop_aux(L,Atr).
+afiseaza_scop(Atr):- (max_fc(L,Atr);afiseaza_scop),afis_scop_aux(L,Atr).
 
 %folosind lista de FC de mai jos se afiseaza jobul care are factorul de certitudine egal cu capul listei, se repeta pana la []
 afis_scop_aux([],_).
@@ -266,14 +266,14 @@ cum_premise([Scop|X]) :-
 cum(Scop),
 cum_premise(X).
         
-interogheaza(Atr,Mesaj,[da,nu],Istorie) :-
-!,write(Mesaj),nl,write('da nu'),nl,
-de_la_utiliz(X,Istorie,[da,nu]),
+interogheaza(Atr,Mesaj,[da,nu,nu_stiu,nu_conteaza],Istorie) :-
+!,write(Mesaj),nl,write('da nu nu_stiu nu_conteaza'),nl,
+de_la_utiliz(X,Istorie,[da,nu,nu_stiu,nu_conteaza]),
 det_val_fc(X,Val,FC),
 asserta( fapt(av(Atr,Val),FC,[utiliz]) ).
 interogheaza(Atr,Mesaj,Optiuni,Istorie) :-
-write(Mesaj),nl,
-citeste_opt(VLista,Optiuni,Istorie),
+write(Mesaj),nl,append(Optiuni,[nu_stiu,nu_conteaza],Optiuni1),
+citeste_opt(VLista,Optiuni1,Istorie),
 assert_fapt(Atr,VLista).
 
 
