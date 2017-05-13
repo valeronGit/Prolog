@@ -6,7 +6,7 @@
 :-dynamic fapt/3.
 :-dynamic interogat/1.
 :-dynamic scop/1.
-:-dynamic interogabil/3.
+:-dynamic interogabil/4.
 :-dynamic regula/3.
 :-dynamic intrebare_curenta/3.
 
@@ -205,9 +205,17 @@ fg(Scop,FC,_) :- fapt(Scop,FC,_).
 
 pot_interoga(av(Atr,_),Istorie) :-
 not interogat(av(Atr,_)),
-interogabil(Atr,Optiuni,Mesaj),
+interogabil(Atr,Optiuni,Mesaj,m),
+interogheaza_mlt(Atr,Mesaj,Optiuni,Istorie),nl,
+asserta( interogat(av(Atr,_)) ).
+
+pot_interoga(av(Atr,_),Istorie) :-
+not interogat(av(Atr,_)),
+interogabil(Atr,Optiuni,Mesaj,s),
 interogheaza(Atr,Mesaj,Optiuni,Istorie),nl,
 asserta( interogat(av(Atr,_)) ).
+
+
 
 cum([]) :- write('Scop? '),nl,
 write('|:'),citeste_linie(Linie),nl,
@@ -271,11 +279,16 @@ interogheaza(Atr,Mesaj,[da,nu,nu_stiu,nu_conteaza],Istorie) :-
 de_la_utiliz(X,Istorie,[da,nu,nu_stiu,nu_conteaza]),
 det_val_fc(X,Val,FC),
 asserta( fapt(av(Atr,Val),FC,[utiliz]) ).
+
+interogheaza_mlt(Atr,Mesaj,Optiuni,Istorie) :-
+write(Mesaj),nl,append(Optiuni,[nu_stiu,nu_conteaza,sf],Optiuni1),
+citeste_opt(VLista,Optiuni1,Istorie),((VLista==[sf],!);
+(assert_fapt(Atr,VLista),fail)).
+
 interogheaza(Atr,Mesaj,Optiuni,Istorie) :-
 write(Mesaj),nl,append(Optiuni,[nu_stiu,nu_conteaza],Optiuni1),
 citeste_opt(VLista,Optiuni1,Istorie),
 assert_fapt(Atr,VLista).
-
 
 citeste_opt(X,Optiuni,Istorie) :-
 append(['('],Optiuni,Opt1),
@@ -357,7 +370,7 @@ incarca:-write('Nume incorect de fisier! '),nl,fail.
 
 incarca(F) :-
 retractall(interogat(_)),retractall(fapt(_,_,_)),
-retractall(scop(_)),retractall(interogabil(_,_,_)),
+retractall(scop(_)),retractall(interogabil(_,_,_,_)),
 retractall(regula(_,_,_)),
 see(F),incarca_reguli,seen,!.
 
@@ -370,7 +383,9 @@ proceseaza(L) :-
 trad(R,L,[]),assertz(R), !.
 trad(scop(X)) --> [scop,'^',X].
 trad(scop(X)) --> [scop,X].
-trad(interogabil(Atr,M,P)) --> 
+trad(interogabil(Atr,M,P,m)) --> 
+['rasp_multiplu','[',Atr,']'],afiseaza(Atr,P),lista_optiuni(M).
+trad(interogabil(Atr,M,P,s)) --> 
 ['[',Atr,']'],afiseaza(Atr,P),lista_optiuni(M).
 trad(regula(N,premise(Daca),concluzie(Atunci,F))) --> identificator(N),atunci(Atunci,F),daca(Daca).
 trad('Eroare la parsare'-L,L,_).
@@ -495,9 +510,9 @@ citeste_cuvant(_,Cuvant,Caracter1) :-
 get_code(Caracter),       
 citeste_cuvant(Caracter,Cuvant,Caracter1). 
 
-caracter_cuvant(C):-member(C,[44,59,58,63,33,46,41,40,123,125,94,47,38,91,93,45]).
+caracter_cuvant(C):-member(C,[44,59,58,63,33,46,41,40,123,125,94,47,38,91,93,45,95]).
 
-% am specificat codurile ASCII pentru , ; : ? ! . ) ( { } ^ / & [ ] -
+% am specificat codurile ASCII pentru , ; : ? ! . ) ( { } ^ / & [ ] - _
 
 caractere_in_interiorul_unui_cuvant(C):-
 C>64,C<91;C>47,C<58;
