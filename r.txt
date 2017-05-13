@@ -813,7 +813,6 @@ lista_de_premise {
 	knows_programming &&
 	senior_level &&
 	knows_alm &&
-	knows_database^sql &&
 	knows_databases^oracle_sql &&
 	knows_operating_systems
 }.
@@ -825,7 +824,6 @@ lista_de_premise {
 	knows_programming &&
 	senior_level &&
 	knows_alm &&
-	knows_database^sql &&
 	knows_operating_systems
 }.
 
@@ -836,7 +834,6 @@ lista_de_premise {
 	knows_programming &&
 	senior_level &&
 	knows_alm &&
-	knows_database^sql
 }.
 
 
@@ -971,6 +968,12 @@ lista_de_premise {
 	knows_programming_oop^c_plus_plus &&
 	knows_raspberrypi &&
 	team_player
+}.
+
+reg^92
+job^(software_tester && factor_de_certitudine^60)
+lista_de_premise {
+	knows_operating_systems
 }.
 
 
