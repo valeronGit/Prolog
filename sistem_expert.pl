@@ -281,8 +281,8 @@ det_val_fc(X,Val,FC),
 asserta( fapt(av(Atr,Val),FC,[utiliz]) ).
 
 interogheaza_mlt(Atr,Mesaj,Optiuni,Istorie) :-
-write(Mesaj),nl,append(Optiuni,[nu_stiu,nu_conteaza,sf],Optiuni1),
-citeste_opt(VLista,Optiuni1,Istorie),((VLista==[sf],!);
+write(Mesaj),nl,append(Optiuni,[nu_stiu,nu_conteaza,gata],Optiuni1),
+citeste_opt(VLista,Optiuni1,Istorie),((VLista==[gata],!);
 (assert_fapt(Atr,VLista),fail)).
 
 interogheaza(Atr,Mesaj,Optiuni,Istorie) :-
