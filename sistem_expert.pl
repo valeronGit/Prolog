@@ -275,7 +275,7 @@ cum(Scop),
 cum_premise(X).
         
 interogheaza(Atr,Mesaj,[da,nu,nu_stiu,nu_conteaza],Istorie) :-
-!,write(Mesaj),nl,write('da nu nu_stiu nu_conteaza'),nl,write('fdfdfdf'),nl,
+!,write(Mesaj),nl,write('da nu nu_stiu nu_conteaza'),nl,
 de_la_utiliz(X,Istorie,[da,nu,nu_stiu,nu_conteaza]),
 det_val_fc(X,Val,FC),asserta( fapt(av(Atr,Val),FC,[utiliz]) ).
 
