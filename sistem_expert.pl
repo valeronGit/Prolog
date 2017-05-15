@@ -13,6 +13,11 @@
 not(P):-P,!,fail.
 not(_).
 
+scrie_lista1([]).
+scrie_lista1([H|T]) :-
+write(H),
+scrie_lista1(T).
+
 scrie_lista([]):-nl.
 scrie_lista([H|T]) :-
 write(H), tab(1),
@@ -187,13 +192,12 @@ FC1 is integer(FC),write(FC1).
 realizare_scop(not Scop,Not_FC,Istorie) :-
 realizare_scop(Scop,FC,Istorie),
 Not_FC is - FC, !.
+
 realizare_scop(av(Atr,_),FC,_) :-
 fapt(av(Atr,nu_conteaza),FC,_), !.
+
 realizare_scop(Scop,FC,_) :-
 fapt(Scop,FC,_), !.
-
-
-
 realizare_scop(Scop,FC,Istorie) :-
 pot_interoga(Scop,Istorie),
 !,realizare_scop(Scop,FC,Istorie).
@@ -248,27 +252,38 @@ afis_regula(N),
 premisele(N),
 afis_reguli(X).
 afis_regula(N) :-
-regula(N, premise(Lista_premise),
-concluzie(Scop,FC)),NN is integer(N),
-scrie_lista(['regula  ',NN]),
-scrie_lista(['  Daca']),
+regula(N,premise(Lista_premise),
+concluzie(Scop,FC)),
+NN is integer(N),
+scrie_lista1(['reg^',NN]),nl,
+transformare2(Scop,Scop_tr),
+FC1 is integer(FC),append(Scop_tr,['&& factor de certitudine',FC1,')'],LL),
+scrie_lista(LL),
+scrie_lista(['{']),
 scrie_lista_premise(Lista_premise),
-scrie_lista(['  Atunci']),
-transformare(Scop,Scop_tr),
-append(['   '],Scop_tr,L1),
-FC1 is integer(FC),append(L1,[FC1],LL),
-scrie_lista(LL),nl.
+scrie_lista(['}']).
 
-scrie_lista_premise([]).
+scrie_lista_premise([H]) :- transformare3(H,H_tr),
+tab(5),scrie_lista1(H_tr),nl.
 scrie_lista_premise([H|T]) :-
-transformare(H,H_tr),
-tab(5),scrie_lista(H_tr),
+transformare3(H,H_tr),
+tab(5),scrie_lista1(H_tr),write(' &&'),nl,
 scrie_lista_premise(T).
 
 transformare(av(A,da),[A]) :- !.
 transformare(not av(A,da), [not,A]) :- !.
 transformare(av(A,nu),[not,A]) :- !.
 transformare(av(A,V),[A,este,V]).
+
+transformare2(av(A,da),[A,'^(da']) :- !.
+transformare2(not av(A,da), [not,A]) :- !.
+transformare2(av(A,nu),[not,A]) :- !.
+transformare2(av(A,V),[A,'^(',V]).
+
+transformare3(av(A,da),[A]) :- !.
+transformare3(not av(A,da), ['^',A]) :- !.
+transformare3(av(A,nu),['^',A]) :- !.
+transformare3(av(A,V),[A,'^',V]).
 
 premisele(N) :-
 regula(N, premise(Lista_premise), _),
@@ -286,18 +301,14 @@ det_val_fc(X,Val,FC),asserta( fapt(av(Atr,Val),FC,[utiliz]) ).
 
 interogheaza_mlt(Atr,Mesaj,Optiuni,Istorie) :-
 write(Mesaj),nl,append(Optiuni,[nu_stiu,nu_conteaza,gata],Optiuni1),
-citeste_opt(VLista,Optiuni1,Istorie),(VLista==[gata],!;assert_fapt(Atr,VLista),fail). 
+citeste_opt(VLista,Optiuni1,Istorie),(VLista==[gata],!;
+(assert_fapt(Atr,VLista),fail)).
 
 interogheaza(Atr,Mesaj,Optiuni,Istorie) :-
 write(Mesaj),nl,append(Optiuni,[nu_stiu,nu_conteaza],Optiuni1),
 citeste_opt(VLista,Optiuni1,Istorie),
 assert_fapt(Atr,VLista).
 
-nu_conteaza(Atr,[H],Val):- \+fapt(av(Atr,H),_,_),assert_fapt(Atr,[H,fc,Val]);true.
-nu_conteaza(Atr,[H|T],Val):- \+fapt(av(Atr,H),_,_),assert_fapt(Atr,[H,fc,Val]),nu_conteaza(Atr,T,Val);nu_conteaza(Atr,T,Val).
-
-nu_conteaza(Atr,[H]):- \+fapt(av(Atr,H),_,_),assert_fapt(Atr,[H]);true.
-nu_conteaza(Atr,[H|T]):- \+fapt(av(Atr,H),_,_),assert_fapt(Atr,[H]),nu_conteaza(Atr,T);nu_conteaza(Atr,T).
 
 citeste_opt(X,Optiuni,Istorie) :-
 append(['('],Optiuni,Opt1),
@@ -527,3 +538,5 @@ caractere_in_interiorul_unui_cuvant(C):-
 C>64,C<91;C>47,C<58;
 C==45;C==95;C>96,C<123.
 caracter_numar(C):-C<58,C>=48.
+
+
