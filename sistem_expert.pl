@@ -301,13 +301,21 @@ det_val_fc(X,Val,FC),asserta( fapt(av(Atr,Val),FC,[utiliz]) ).
 
 interogheaza_mlt(Atr,Mesaj,Optiuni,Istorie) :-
 write(Mesaj),nl,append(Optiuni,[nu_stiu,nu_conteaza,gata],Optiuni1),
+
 citeste_opt(VLista,Optiuni1,Istorie),(VLista==[gata],!;
 (assert_fapt(Atr,VLista),fail)).
 
 interogheaza(Atr,Mesaj,Optiuni,Istorie) :-
 write(Mesaj),nl,append(Optiuni,[nu_stiu,nu_conteaza],Optiuni1),
-citeste_opt(VLista,Optiuni1,Istorie),
-assert_fapt(Atr,VLista).
+citeste_opt(VLista,Optiuni1,Istorie),((VLista==[nu_conteaza],nu_conteaza(Atr,Optiuni),!);
+(VLista=[nu_conteaza,fc,Val],nu_conteaza(Atr,Optiuni,Val),!);
+assert_fapt(Atr,VLista)).
+
+nu_conteaza(Atr,[H],Val):- \+fapt(av(Atr,H),_,_),assert_fapt(Atr,[H,fc,Val]);true.
+nu_conteaza(Atr,[H|T],Val):- \+fapt(av(Atr,H),_,_),assert_fapt(Atr,[H,fc,Val]),nu_conteaza(Atr,T,Val);nu_conteaza(Atr,T,Val).
+
+nu_conteaza(Atr,[H]):- \+fapt(av(Atr,H),_,_),assert_fapt(Atr,[H]);true.
+nu_conteaza(Atr,[H|T]):- \+fapt(av(Atr,H),_,_),assert_fapt(Atr,[H]),nu_conteaza(Atr,T);nu_conteaza(Atr,T).
 
 
 citeste_opt(X,Optiuni,Istorie) :-
