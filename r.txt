@@ -814,7 +814,8 @@ lista_de_premise {
 	senior_level &&
 	knows_alm &&
 	knows_databases^oracle_sql &&
-	knows_operating_systems
+	knows_operating_systems &&
+	team_player
 }.
 
 
@@ -833,7 +834,7 @@ job^(alm_application_lifecycle_management && factor_de_certitudine^70)
 lista_de_premise {
 	knows_programming &&
 	senior_level &&
-	knows_alm &&
+	knows_alm
 }.
 
 
@@ -978,6 +979,7 @@ lista_de_premise {
 
 
 
+
 [knows_programming]
 text-intrebare ^ 'Cunoasteti vreun limbaj de programare?'
 optiuni ^ {Da // Nu}.
@@ -1073,16 +1075,16 @@ text-intrebare ^ 'Cati ani de experienta aveti in domeniu?'
 optiuni ^ {junior // middle  // senior}.
 
 
-[knows_scripting]
-knows_scripting ^ 'Ce limbaje de scripting cunoasteti?'
-optiuni ^ {javascript // jquery // angularJs}.
+rasp_multiplu[knows_scripting]
+text-intrebare ^ 'Ce limbaje de scripting cunoasteti?'
+optiuni ^ { javascript // jquery // angularJs}.
 
 
-[knows_programming_oop]
+rasp_multiplu[knows_programming_oop]
 text-intrebare ^ 'Ce limbaje de programare cunoasteti?'
-optiuni ^ {java // c // c_plus_plus // c_sharp // python // perl // swift_objective_c}.
+optiuni ^ { java // c // c_plus_plus // c_sharp // python // perl // swift_objective_c}.
 
 
-[knows_databases] 
+rasp_multiplu[knows_databases] 
 text-intrebare ^ 'Ce limbaje de baze de date cunoasteti?'
 optiuni ^ {sql // oracle_sql // php}.
