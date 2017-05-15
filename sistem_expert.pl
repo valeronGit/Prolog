@@ -187,8 +187,13 @@ FC1 is integer(FC),write(FC1).
 realizare_scop(not Scop,Not_FC,Istorie) :-
 realizare_scop(Scop,FC,Istorie),
 Not_FC is - FC, !.
+realizare_scop(av(Atr,_),FC,_) :-
+fapt(av(Atr,nu_conteaza),FC,_), !.
 realizare_scop(Scop,FC,_) :-
 fapt(Scop,FC,_), !.
+
+
+
 realizare_scop(Scop,FC,Istorie) :-
 pot_interoga(Scop,Istorie),
 !,realizare_scop(Scop,FC,Istorie).
@@ -277,18 +282,22 @@ cum_premise(X).
 interogheaza(Atr,Mesaj,[da,nu,nu_stiu,nu_conteaza],Istorie) :-
 !,write(Mesaj),nl,write('da nu nu_stiu nu_conteaza'),nl,
 de_la_utiliz(X,Istorie,[da,nu,nu_stiu,nu_conteaza]),
-det_val_fc(X,Val,FC),
-asserta( fapt(av(Atr,Val),FC,[utiliz]) ).
+det_val_fc(X,Val,FC),asserta( fapt(av(Atr,Val),FC,[utiliz]) ).
 
 interogheaza_mlt(Atr,Mesaj,Optiuni,Istorie) :-
-write(Mesaj),nl,append(Optiuni,[nu_stiu,nu_conteaza,sf],Optiuni1),
-citeste_opt(VLista,Optiuni1,Istorie),((VLista==[sf],!);
-(assert_fapt(Atr,VLista),fail)).
+write(Mesaj),nl,append(Optiuni,[nu_stiu,nu_conteaza,gata],Optiuni1),
+citeste_opt(VLista,Optiuni1,Istorie),(VLista==[gata],!;assert_fapt(Atr,VLista),fail). 
 
 interogheaza(Atr,Mesaj,Optiuni,Istorie) :-
 write(Mesaj),nl,append(Optiuni,[nu_stiu,nu_conteaza],Optiuni1),
 citeste_opt(VLista,Optiuni1,Istorie),
 assert_fapt(Atr,VLista).
+
+nu_conteaza(Atr,[H],Val):- \+fapt(av(Atr,H),_,_),assert_fapt(Atr,[H,fc,Val]);true.
+nu_conteaza(Atr,[H|T],Val):- \+fapt(av(Atr,H),_,_),assert_fapt(Atr,[H,fc,Val]),nu_conteaza(Atr,T,Val);nu_conteaza(Atr,T,Val).
+
+nu_conteaza(Atr,[H]):- \+fapt(av(Atr,H),_,_),assert_fapt(Atr,[H]);true.
+nu_conteaza(Atr,[H|T]):- \+fapt(av(Atr,H),_,_),assert_fapt(Atr,[H]),nu_conteaza(Atr,T);nu_conteaza(Atr,T).
 
 citeste_opt(X,Optiuni,Istorie) :-
 append(['('],Optiuni,Opt1),
